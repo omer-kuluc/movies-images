@@ -90,7 +90,7 @@ h6 {
 .fullscreen img {
   will-change: transform;
   object-fit: contain;
-  width: 50%;
+  width: 100%;
   min-height: 100%;
   position: absolute;
 }
@@ -121,4 +121,19 @@ h1 {
 
 .effect {
   visibility: hidden;
+}
+
+
+@media (width > 768px) {
+  .fullscreen img {
+    width: 75%;
+  }
+
+}
+
+@media (width > 1280px) {
+  .fullscreen img {
+    width: 50%;
+  }
+
 }

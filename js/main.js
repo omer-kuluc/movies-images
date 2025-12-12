@@ -1,5 +1,5 @@
-gsap.to(".intro-text", { text: "WES ANDERSON", ease: "power4.in", opacity: 1, duration: 4.5, repeat: 1, yoyo: true });
-gsap.to(".intro-text", { text: "GRAND", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "-=0.5");
+gsap.to(".intro-text", { text: "WES ANDERSON", ease: "power4.in", opacity: 1, duration: 4, repeat: 1, yoyo: true });
+gsap.to(".intro-text", { text: "GRAND", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "-=1.5");
 gsap.to(".intro-text", { text: "BUDAPEST", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "+=0.5");
 gsap.to(".intro-text", { text: "HOTEL", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "+=0.5");
 

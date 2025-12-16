@@ -4,7 +4,7 @@ const tl = gsap.timeline();
 tl.from(".orange", { xPercent: -100 })
   .from(".purple", { xPercent: 100 })
   .from(".blue", { yPercent: -100 })
-  .from(".image", { yPercent: 300 });
+  .from(".image", { yPercent: 200 });
 
 ScrollTrigger.create({
   animation: tl,

@@ -1,13 +1,20 @@
-gsap.to(".intro-text", { text: "WES ANDERSON", ease: "power4.inOut", opacity: 1, duration: 3.75, repeat: 1, yoyo: true });
-gsap.to(".intro-text", { text: "GRAND", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "-=1");
-gsap.to(".intro-text", { text: "BUDAPEST", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "+=0.5");
-gsap.to(".intro-text", { text: "HOTEL", ease: "power2.inOut", opacity: 1, duration: 1.5 }, "+=0.5");
 
+// create a sequence that moves 3 of the panels in from different directions 
+const tl = gsap.timeline();
 
+tl.from(".orange", { xPercent: -100 })
+  .from(".purple", { xPercent: 100 })
+  .from(".blue", { yPercent: -100 })
+  .from(".image", { yPercent: 300 });
 
-gsap.set(".effect", { autoAlpha: 1 })
-let tl = gsap.timeline()
-  .from("h1", { scale: 0.2, duration: 4.5, ease: "power4.inOut" }, "+=3")
-  .to(".blendImage, .bg", { scale: 1, duration: 5.5 }, "+=2")
-  .to(".dark", { opacity: 0, duration: 2 }, "-=0.75")
+// pin the container and link the animation to the scrollbar (scrub: true). We could easily embed this in the gsap.timeline() to shorten things a bit, but this is to show that you can create the ScrollTrigger separately if you prefer. 
+ScrollTrigger.create({
+  animation: tl,
+  trigger: "#panel-container",
+  start: "top top",
+  end: "+=3000",
+  scrub: true,
+  pin: true,
+  anticipatePin: 1
+});
 

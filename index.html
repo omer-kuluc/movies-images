@@ -8,22 +8,28 @@
   <link rel="stylesheet" href="css/index.css">
   <script src="js/gsap.min.js" defer></script>
   <script src="js/TextPlugin.min.js" defer></script>
+  <script src="js/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
 <body>
-
-  <div class="effect">
-    <div class="fullscreen">
-      <img class="bg" src="img/grand-budapest-hotel.jpg">
-    </div>
-    <div class="fullscreen dark">
-      <h1 class="intro-text"></h1>
-      <img class="blendImage" src="img/grand-budapest-hotel.jpg">
-    </div>
+  <div id="panel-container">
+    <section class="panel solid green">
+      <h2>THE</h2>
+    </section>
+    <section class="panel solid orange">
+      <h2>GRAND</h2>
+    </section>
+    <section class="panel solid purple">
+      <h2>BUDAPEST</h2>
+    </section>
+    <section class="panel solid blue">
+      <h2 class="hotel-text">HOTEL</h2>
+    </section>
+    <section class="panel photo">
+      <img class="image" src="img/grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel">
+    </section>
   </div>
-
-
 </body>
 
 </html>

@@ -1,135 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-/* 1. Use a more-intuitive box-sizing model */
+/* Genel ayarlar */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
-
-/* 3. Enable keyword animations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
 body {
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Playfair Display', serif;
+  background: #f5f0e6;
+  min-height: 300vh;
+  overflow-x: hidden;
+  color: #851928;
 }
 
-/* 6. Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* 7. Inherit fonts for form controls */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* 8. Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 9. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/*
-  10. Create a root stacking context
-*/
-#root,
-#__next {
-  isolation: isolate;
-}
-
-#panel-container {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-
-}
-
-.panel {
-  width: 100%;
-  height: 100%;
+/* index.css içine ekle */
+.letter-animation {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.collected-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+}
+
+.word {
+  font-size: 1.1rem;
+  font-weight: 900;
+  display: inline-block;
 
 }
 
-.green {
-  background-color: #493B5B;
-  color: #C89F3A;
+.scroll-space {
+  height: 200vh;
 }
 
-.orange {
-  background-color: #851928;
-  color: #F5EBE0;
-}
-
-.purple {
-  background-color: #E5C6C6;
-  color: #405C66;
-}
-
-.blue {
-  background-color: #95A4AB;
-  color: #e2e9ec;
-  height: 100vh;
-  width: 100%;
-}
-
-h2 {
-  font-family: 'Inter';
-  font-size: 10vw;
-}
-
-.image {
-  width: 75%;
-  object-fit: cover;
+.collected-words,
+.word,
+.line {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  /* Donanım hızlandırmayı zorla */
 }
 
 
-@media(width>=1280px) {
-  .image {
-    width: 50%;
+@media (width >=768px) {
+  .word {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media (width >=1280px) {
+  .word {
+    font-size: 2rem;
   }
 }

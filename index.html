@@ -4,32 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grand Budapest Hotel</title>
+  <title>The Grand Budapest Hotel - Letter Animation</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/gsap.min.js" defer></script>
-  <script src="js/TextPlugin.min.js" defer></script>
   <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/TextPlugin.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
 <body>
-  <div id="panel-container">
-    <section class="panel solid green">
-      <h2>THE</h2>
-    </section>
-    <section class="panel solid orange">
-      <h2>GRAND</h2>
-    </section>
-    <section class="panel solid purple">
-      <h2>BUDAPEST</h2>
-    </section>
-    <section class="panel solid blue">
-      <h2 class="hotel-text">HOTEL</h2>
-    </section>
-    <section class="panel photo">
-      <img class="image" src="img/grand-budapest-hotel-image.jpg" alt="The Grand Budapest Hotel">
-    </section>
+  <div class="letter-animation">
+    <!-- Dağınık harfler -->
+    <div class="scattered-letters"></div>
+
+    <!-- Toplanmış kelimeler -->
+    <div class="collected-words">
+      <div class="line">
+        <span class="word">T</span>
+        <span class="word">H</span>
+        <span class="word">E</span>
+      </div>
+      <div class="line">
+        <span class="word">G</span>
+        <span class="word">R</span>
+        <span class="word">A</span>
+        <span class="word">N</span>
+        <span class="word">D</span>
+      </div>
+      <div class="line">
+        <span class="word">B</span>
+        <span class="word">U</span>
+        <span class="word">D</span>
+        <span class="word">A</span>
+        <span class="word">P</span>
+        <span class="word">E</span>
+        <span class="word">S</span>
+        <span class="word">T</span>
+      </div>
+      <div class="line">
+        <span class="word">H</span>
+        <span class="word">O</span>
+        <span class="word">T</span>
+        <span class="word">E</span>
+        <span class="word">L</span>
+      </div>
+    </div>
   </div>
+
+  <!-- Scroll için boşluk -->
+  <div class="scroll-space"></div>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background: #f5f0e6;
+  background: #FFEAD3;
   min-height: 300vh;
   overflow-x: hidden;
   color: #851928;
@@ -47,7 +47,10 @@ body {
 }
 
 .scroll-space {
-  height: 200vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
 .collected-words,
@@ -57,6 +60,101 @@ body {
   transform: translateZ(0);
   /* Donanım hızlandırmayı zorla */
 }
+
+.transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFEAD3;
+  opacity: 1;
+  z-index: 10;
+}
+
+.otel-image {
+  width: 70%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mevcut .otel-image stilini değiştir */
+.otel-image-wrapper {
+  width: 70%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  aspect-ratio: 16 / 9;
+  /* Resmin oranına göre ayarla */
+  position: relative;
+}
+
+.image-piece {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-piece .otel-image {
+  position: absolute;
+  width: 300%;
+  /* 3 sütun x 100% */
+  height: 300%;
+  /* 3 satır x 100% */
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Her parçanın doğru konumunu göstermesi için */
+.piece-1 .otel-image {
+  top: 0;
+  left: 0;
+}
+
+.piece-2 .otel-image {
+  top: 0;
+  left: -100%;
+}
+
+.piece-3 .otel-image {
+  top: 0;
+  left: -200%;
+}
+
+.piece-4 .otel-image {
+  top: -100%;
+  left: 0;
+}
+
+.piece-5 .otel-image {
+  top: -100%;
+  left: -100%;
+}
+
+.piece-6 .otel-image {
+  top: -100%;
+  left: -200%;
+}
+
+.piece-7 .otel-image {
+  top: -200%;
+  left: 0;
+}
+
+.piece-8 .otel-image {
+  top: -200%;
+  left: -100%;
+}
+
+.piece-9 .otel-image {
+  top: -200%;
+  left: -200%;
+}
+
+
+
 
 
 @media (width >=768px) {
@@ -70,4 +168,8 @@ body {
   .word {
     font-size: 2rem;
   }
+
+
+
+
 }

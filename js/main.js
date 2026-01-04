@@ -26,8 +26,8 @@ window.addEventListener("load", () => {
     scrollTrigger: {
       trigger: ".letter-animation",
       start: "top top", // Animasyon ne zaman başlasın
-      end: "+=225%",    // Ne kadar scroll boyunca sürsün
-      scrub: 1.5,         // Kaydırma hızına duyarlı olsun (0.5 - 1 idealdir)
+      end: "+=250%",    // Ne kadar scroll boyunca sürsün
+      scrub: 5,         // Kaydırma hızına duyarlı olsun (0.5 - 1 idealdir)
       markers: true,
       pin: true
     }
@@ -62,31 +62,6 @@ window.addEventListener("load", () => {
   const transition = document.createElement('div');
   transition.classList.add('transition');
   document.body.appendChild(transition);
-
-  // ScrollTrigger'da yeni bir geçiş animasyonu ekleme
-  // ScrollTrigger.create({
-  //   trigger: ".scroll-space",
-  //   start: "top top",
-  //   end: "+=100%",
-  //   onEnter: () => {
-  //     gsap.to(transition, {
-  //       duration: 0.5,
-  //       opacity: 0,
-  //       onComplete: () => {
-  //         transition.remove();
-  //       }
-  //     });
-  //   },
-  //   onLeaveBack: () => {
-  //     const newTransition = document.createElement('div');
-  //     newTransition.classList.add('transition');
-  //     document.body.appendChild(newTransition);
-  //     gsap.to(newTransition, {
-  //       duration: 0.5,
-  //       opacity: 1,
-  //     });
-  //   },
-  // });
 });
 
 
@@ -103,11 +78,11 @@ const imageTl = gsap.timeline(
     }
   });
 imagePieces.forEach((piece, index) => {
-  const randomX = (Math.random() - 0.5) * window.innerWidth * 0.8;
-  const randomY = -3500 + (Math.random() - 0.5) * 500;
-  const randomRotation = (Math.random() - 0.5) * 45; imageTl.from(piece, { x: randomX, y: randomY, opacity: 0, rotation: randomRotation, scale: 0.5 + Math.random() * 0.5, ease: "none" }, index * 0.05);
+  const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+  const randomY = -3500 + (Math.random() - 0.5) * 1000;
+  const randomRotation = (Math.random() - 0.5) * 45;
+  imageTl.from(piece, { x: randomX, y: randomY, opacity: 0, rotation: randomRotation, scale: 0.5 + Math.random() * 0.5, ease: "none" }, index * 0.05);
 });
-imageTl.to(".otel-image-wrapper", { opacity: 1, ease: "none" });
 
 
 gsap.fromTo(".otel-image-wrapper", {
@@ -117,8 +92,8 @@ gsap.fromTo(".otel-image-wrapper", {
   scrollTrigger: {
     trigger: ".scroll-space",
     start: "top bottom",
-    end: "bottom top",
-    scrub: 4.5,
+    end: "bottom bottom",
+    scrub: 10,
     markers: true
   },
   opacity: 1,

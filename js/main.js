@@ -62,6 +62,31 @@ window.addEventListener("load", () => {
   const transition = document.createElement('div');
   transition.classList.add('transition');
   document.body.appendChild(transition);
+
+  // ScrollTrigger'da yeni bir geçiş animasyonu ekleme
+  // ScrollTrigger.create({
+  //   trigger: ".scroll-space",
+  //   start: "top top",
+  //   end: "+=100%",
+  //   onEnter: () => {
+  //     gsap.to(transition, {
+  //       duration: 0.5,
+  //       opacity: 0,
+  //       onComplete: () => {
+  //         transition.remove();
+  //       }
+  //     });
+  //   },
+  //   onLeaveBack: () => {
+  //     const newTransition = document.createElement('div');
+  //     newTransition.classList.add('transition');
+  //     document.body.appendChild(newTransition);
+  //     gsap.to(newTransition, {
+  //       duration: 0.5,
+  //       opacity: 1,
+  //     });
+  //   },
+  // });
 });
 
 
@@ -74,6 +99,7 @@ const imageTl = gsap.timeline(
       start: "top bottom",
       end: "bottom top",
       scrub: 5.5,
+      invalidateOnRefresh: true,
       markers: true
     }
   });
@@ -81,7 +107,14 @@ imagePieces.forEach((piece, index) => {
   const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
   const randomY = -3500 + (Math.random() - 0.5) * 1000;
   const randomRotation = (Math.random() - 0.5) * 45;
-  imageTl.from(piece, { x: randomX, y: randomY, opacity: 0, rotation: randomRotation, scale: 0.5 + Math.random() * 0.5, ease: "none" }, index * 0.05);
+  imageTl.from(piece,
+    {
+      x: randomX,
+      y: randomY,
+      opacity: 0,
+      rotation: randomRotation,
+      scale: 0.5 + Math.random() * 0.5, ease: "none"
+    }, index * 0.05);
 });
 
 
@@ -93,11 +126,11 @@ gsap.fromTo(".otel-image-wrapper", {
     trigger: ".scroll-space",
     start: "top bottom",
     end: "bottom bottom",
-    scrub: 10,
+    scrub: 3,
     markers: true
   },
   opacity: 1,
   scale: 1,
-  y: -900
+  y: -950
 }
 )

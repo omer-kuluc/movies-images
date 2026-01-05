@@ -168,7 +168,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 10 / 13;
   /* Resmin oranına göre ayarla */
   position: relative;
 }
@@ -267,6 +267,10 @@ body {
 @media (width >=1280px) {
   .word {
     font-size: 2rem;
+  }
+
+  .image-piece .otel-image {
+    height: 200%;
   }
 
   .character-images {

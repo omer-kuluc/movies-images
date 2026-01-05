@@ -97,8 +97,8 @@ const imageTl = gsap.timeline(
     {
       trigger: ".scroll-space",
       start: "top bottom",
-      end: "bottom top",
-      scrub: 5.5,
+      end: "bottom 40%",
+      scrub: 10,
       invalidateOnRefresh: true,
       markers: true
     }

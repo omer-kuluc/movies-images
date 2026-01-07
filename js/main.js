@@ -1,20 +1,20 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: window.innerWidth <= 768 ? 0.8 : 1.2, // Tabletlerde daha hızlı scroll
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   orientation: 'vertical',
   gestureOrientation: 'vertical',
   smoothWheel: true,
 });
 
-lenis.on('scroll', ScrollTrigger.update);
-
-gsap.ticker.add((time) => {
-  lenis.raf(time * 500);
-});
-
-gsap.ticker.lagSmoothing(0);
+if (window.innerWidth > 768) {
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 500);
+  });
+  gsap.ticker.lagSmoothing(0);
+}
 
 // const getDynamicY = () => {
 //   if (window.innerWidth < 768) {

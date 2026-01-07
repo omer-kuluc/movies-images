@@ -158,7 +158,6 @@ h6 {
   aspect-ratio: 10 / 13;
   position: relative;
   transform: scale(1);
-  overflow: hidden;
 }
 
 .image-piece {

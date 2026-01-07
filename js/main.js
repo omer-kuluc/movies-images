@@ -37,7 +37,6 @@ window.addEventListener("load", () => {
       start: "top top",
       end: "+=250%",
       scrub: 5,
-      markers: true,
       pin: true,
       pinSpacing: true
     }
@@ -79,7 +78,6 @@ const imageTl = gsap.timeline(
       start: "top bottom",
       end: "bottom 40%",
       scrub: 10,
-      markers: true
     }
   });
 
@@ -107,7 +105,6 @@ gsap.fromTo(".otel-image-wrapper", {
     start: "top bottom",
     end: "bottom bottom",
     scrub: 3,
-    markers: true
   },
   opacity: 1,
   scale: 1,

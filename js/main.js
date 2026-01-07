@@ -25,6 +25,9 @@ gsap.ticker.lagSmoothing(0);
 //     return window.innerHeight * -1.5; // Desktop'ta %150
 //   }
 // };
+window.addEventListener("resize", () => {
+  ScrollTrigger.refresh();
+});
 
 window.addEventListener("load", () => {
   const letters = document.querySelectorAll(".word");

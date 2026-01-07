@@ -14,6 +14,7 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
+    overflow: hidden;
   }
 }
 
@@ -81,14 +82,10 @@ h6 {
   isolation: isolate;
 }
 
-.pin-spacer {
-  z-index: 5;
-}
-
-
 .container {
   min-height: 1000vh;
   overflow: hidden;
+  width: 100%;
 }
 
 .letter-animation {
@@ -160,7 +157,7 @@ h6 {
   grid-template-rows: repeat(3, 1fr);
   aspect-ratio: 10 / 13;
   position: relative;
-
+  transform: scale(1);
 }
 
 .image-piece {
@@ -225,7 +222,7 @@ h6 {
 
 
 
-@media (min-width: 768px) {
+@media (width >=768px) {
   .word {
     font-size: 1.5rem;
   }
@@ -237,7 +234,7 @@ h6 {
 }
 
 
-@media (min-width: 1280px) {
+@media (width >=1280px) {
   .word {
     font-size: 2rem;
   }

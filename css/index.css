@@ -14,7 +14,7 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 }
 
@@ -83,9 +83,10 @@ h6 {
 }
 
 .container {
-  min-height: 1000vh;
+  min-height: 100vh;
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .letter-animation {
@@ -220,6 +221,23 @@ h6 {
   left: -200%;
 }
 
+/* story-section-mobile-start */
+
+.story-section {
+  position: absolute;
+  /* Yatay ve dikey konumu belirlemek için absolute kullanıyoruz */
+  top: 73.5%;
+  /* Ekran yüksekliğinin %70'ine yerleşecek */
+  left: 50%;
+  /* Yatayda tam ortalamak için */
+  transform: translateX(-50%);
+  /* Yatayda tam ortalamak için */
+  width: 200px;
+  background-color: red;
+}
+
+
+/* story-section-mobile-end */
 
 
 @media (width >=768px) {
@@ -227,10 +245,9 @@ h6 {
     font-size: 1.5rem;
   }
 
-  /*story-area-tablet-start*/
+  /* story-section-tablet-start */
 
-
-  /*story-area-tablet-end*/
+  /* story-section-tablet-end */
 }
 
 
@@ -242,4 +259,10 @@ h6 {
   .image-piece .otel-image {
     height: 200%;
   }
+
+  /* story-section-desktop-start */
+
+
+  /* story-section-desktop-end */
+
 }

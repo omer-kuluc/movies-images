@@ -1,16 +1,13 @@
-// main.js
-// Lenis Smooth Scroll Kurulumu
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis({
-  duration: 1.2, // Scroll hızı (yüksek rakam daha yavaş/yumuşak)
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Yumuşama eğrisi
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   orientation: 'vertical',
   gestureOrientation: 'vertical',
   smoothWheel: true,
 });
 
-// Lenis ile GSAP ScrollTrigger'ı senkronize etme
 lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
@@ -19,21 +16,30 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
+// const getDynamicY = () => {
+//   if (window.innerWidth < 768) {
+//     return window.innerHeight * -0.4; // Mobilde %40
+//   } else if (window.innerWidth < 1280) {
+//     return window.innerHeight * -0.9; // Tablet/ küçük ekranlar %90
+//   } else {
+//     return window.innerHeight * -1.5; // Desktop'ta %150
+//   }
+// };
 
 window.addEventListener("load", () => {
   const letters = document.querySelectorAll(".word");
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".letter-animation",
-      start: "top top", // Animasyon ne zaman başlasın
-      end: "+=250%",    // Ne kadar scroll boyunca sürsün
-      scrub: 5,         // Kaydırma hızına duyarlı olsun (0.5 - 1 idealdir)
+      start: "top top",
+      end: "+=250%",
+      scrub: 5,
       markers: true,
-      pin: true
+      pin: true,
+      pinSpacing: true
     }
   });
 
-  // Her harf için başlangıç konumu belirle
   letters.forEach((char) => {
     const randomX = (Math.random() - 0.5) * window.innerWidth;
     const randomY = (Math.random() - 0.5) * window.innerHeight;
@@ -44,11 +50,10 @@ window.addEventListener("load", () => {
       opacity: 0,
       rotation: Math.random() * 100,
       scale: 2,
-      ease: "none", // Scrub kullanırken 'power' yerine 'none' titremeyi azaltabilir
+      ease: "none",
     }, 0);
   });
 
-  // 2. AŞAMA: ÇIKIŞ ANIMASYONU
   tl.to(".collected-words", {
     yPercent: -230,
     opacity: 0,
@@ -58,53 +63,25 @@ window.addEventListener("load", () => {
     force3D: true,
   }, "-=0.25");
 
-  // Geçiş efekti ekleme
   const transition = document.createElement('div');
   transition.classList.add('transition');
   document.body.appendChild(transition);
-
-  // ScrollTrigger'da yeni bir geçiş animasyonu ekleme
-  // ScrollTrigger.create({
-  //   trigger: ".scroll-space",
-  //   start: "top top",
-  //   end: "+=100%",
-  //   onEnter: () => {
-  //     gsap.to(transition, {
-  //       duration: 0.5,
-  //       opacity: 0,
-  //       onComplete: () => {
-  //         transition.remove();
-  //       }
-  //     });
-  //   },
-  //   onLeaveBack: () => {
-  //     const newTransition = document.createElement('div');
-  //     newTransition.classList.add('transition');
-  //     document.body.appendChild(newTransition);
-  //     gsap.to(newTransition, {
-  //       duration: 0.5,
-  //       opacity: 1,
-  //     });
-  //   },
-  // });
 });
-
 
 const imagePieces = document.querySelectorAll(".image-piece");
 const imageTl = gsap.timeline(
   {
-    scrollTrigger:
-    {
+    scrollTrigger: {
       trigger: ".scroll-space",
       start: "top bottom",
       end: "bottom 40%",
       scrub: 10,
-      invalidateOnRefresh: true,
       markers: true
     }
   });
+
 imagePieces.forEach((piece, index) => {
-  const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+  const randomX = (Math.random() - 0.5) * window.innerWidth * 0.3;
   const randomY = -3500 + (Math.random() - 0.5) * 1000;
   const randomRotation = (Math.random() - 0.5) * 45;
   imageTl.from(piece,
@@ -132,5 +109,4 @@ gsap.fromTo(".otel-image-wrapper", {
   opacity: 1,
   scale: 1,
   y: -950
-}
-)
+});

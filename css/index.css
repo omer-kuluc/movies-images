@@ -18,11 +18,18 @@
 }
 
 body {
+
   /* 4. Add accessible line-height */
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+
+  font-family: 'Playfair Display', serif;
+  background: #FFEAD3;
+  overflow-x: hidden;
+  color: #851928;
 }
+
 
 /* 6. Improve media defaults */
 picture,
@@ -74,30 +81,16 @@ h6 {
   isolation: isolate;
 }
 
-/* Genel ayarlar */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 .pin-spacer {
-  /* pin spacer için z-index ayarı */
   z-index: 5;
 }
 
-body {
-  font-family: 'Playfair Display', serif;
-  background: #FFEAD3;
-  overflow-x: hidden;
-  color: #851928;
-}
 
 .container {
   min-height: 1000vh;
+  overflow: hidden;
 }
 
-/* index.css içine ekle */
 .letter-animation {
   height: 600px;
   display: flex;
@@ -124,14 +117,12 @@ body {
   font-size: 1.1rem;
   font-weight: 900;
   display: inline-block;
-
 }
 
 .scroll-space {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
 }
 
 .collected-words,
@@ -139,7 +130,6 @@ body {
 .line {
   will-change: transform, opacity;
   transform: translateZ(0);
-  /* Donanım hızlandırmayı zorla */
 }
 
 .transition {
@@ -159,9 +149,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
 }
 
-/* Mevcut .otel-image stilini değiştir */
 .otel-image-wrapper {
   width: 70%;
   margin-inline: auto;
@@ -169,8 +159,8 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   aspect-ratio: 10 / 13;
-  /* Resmin oranına göre ayarla */
   position: relative;
+
 }
 
 .image-piece {
@@ -180,15 +170,14 @@ body {
 
 .image-piece .otel-image {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 300%;
-  /* 3 sütun x 100% */
   height: 300%;
-  /* 3 satır x 100% */
   object-fit: cover;
   margin: 0;
 }
 
-/* Her parçanın doğru konumunu göstermesi için */
 .piece-1 .otel-image {
   top: 0;
   left: 0;
@@ -234,21 +223,21 @@ body {
   left: -200%;
 }
 
-/*chapter-1-mobile*/
-/*character section*/
 
 
-
-
-@media (width >=768px) {
+@media (min-width: 768px) {
   .word {
     font-size: 1.5rem;
   }
 
+  /*story-area-tablet-start*/
+
+
+  /*story-area-tablet-end*/
 }
 
 
-@media (width >=1280px) {
+@media (min-width: 1280px) {
   .word {
     font-size: 2rem;
   }
@@ -256,7 +245,4 @@ body {
   .image-piece .otel-image {
     height: 200%;
   }
-
-
-
 }
